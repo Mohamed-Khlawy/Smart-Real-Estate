@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Unit;
 use Illuminate\Http\Request;
-use Spatie\Searchable\Search;
+use Illuminate\Database\Eloquent\Builder;
 
 class LinksController extends Controller
 {
@@ -53,47 +53,20 @@ class LinksController extends Controller
         $units= Unit::orderBy('price', 'asc')->limit(5)->get();
         $AllUnits = Unit::all();
 
-        $Result = Unit::paginate(15);
+       // $Result = Unit::paginate(15);
 
-        if( $a != null ){
-            $Result = $Result->search($a);
-        }
-        if( $b != null ){
-            if (is_object($Result)){
-                $Result = $Result->when($b, function ($query) use ($b){
-                    if($b == '100000'){
-                        $query->whenBetween('price', [50000, 100000]);
-                    }elseif ($b == '50000'){
-                        $query->whenBetween('price', [30000, 50000]);
-                    }elseif ($b == '30000'){
-                        $query->whenBetween('price', [15000, 30000]);
-                    }elseif ($b == '15000'){
-                        $query->whenBetween('price', [0, 15000]);
-                    }
-                });
-            }
-        }
-        if( $c != null ){
-            if (is_object($Result)){
-                $Result = $Result->search($c);
-            }
-        }
-        if( $d != null ){
-            if (is_object($Result)){
-                $Result = $Result->search($d);
-            }
+        /////////////////////////////////////////
 
-        }
 
-        return view('buysalerent', compact(
-            'units',
-            'AllUnits',
-            'Result',
-            'c',
-            'd',
-            'a',
-            'b',
-        ));
+
+        /////////////////////////////////////////
+        //dd( $request);
+
+//        return view('buysalerent', compact(
+//            'units',
+//            'AllUnits',
+//            'Result',
+//        ));
 
     }
 

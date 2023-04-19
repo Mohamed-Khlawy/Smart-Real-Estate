@@ -22,7 +22,7 @@ Route::controller(LinksController::class)->group(function() {
     Route::get('/contact', 'contact')->name('contact');
     Route::get('/buysalerent', 'buysalerent')->name('buysalerent');
     Route::get('/buy_salerent', 'sortData')->name('sortData');
-    Route::post('/search', 'search')->name('search');
+    Route::Get('/search', 'search')->name('search');
     Route::get('/blogdetail', 'blogdetail')->name('blogdetail');
     Route::get('/propertydetail', 'property_detail')->name('propertydetail');
 

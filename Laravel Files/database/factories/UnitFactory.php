@@ -3,20 +3,8 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Nicolaslopezj\Searchable\SearchableTrait;
 class UnitFactory extends Factory
 {
-    use SearchableTrait;
-
-    protected $searchable = [
-        'columns' => [
-            'for_what' => 10,
-            'type' => 10,
-            'price' => 10,
-            'address' => 10,
-        ],
-    ];
-
     public function definition(): array
     {
         $components =['1', '2', '3', '4'];
