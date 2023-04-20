@@ -1,0 +1,3 @@
+[submodule "RealEstate"]
+	path = RealEstate
+	url = git@github.com:Jebra0/RealEstate.git
